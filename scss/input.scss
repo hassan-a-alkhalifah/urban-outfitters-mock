@@ -17,10 +17,7 @@
   width: $max-width;
   padding: 0 30px;
   margin: 0 auto;
-  font-family: helvetica, arial, sans-serif;
-  font-size: 12px;
-  text-decoration: none;
-  color: $font-color;
+  @include menu-format;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -38,7 +35,21 @@
       width: 24.5px;
       height: 25px;
     }
-  } // header menu end
+  }
+
+.main-menu {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+@include drop-option(1, ".women-tab");
+@include drop-option(2, ".men-tab");
+@include drop-option(3, ".home-tab");
+@include drop-option(4, ".lifestyle-tab");
+@include drop-option(5, ".beauty-tab");
+@include drop-option(6, ".sale-tab");
+  // header menu end
 
   .search-bar {
     border: solid $border 1px;
@@ -64,19 +75,22 @@
     }
   } // search bar end
 
+}// header end
+
+.header-anchors {
   a {
     padding: 15px 10px;
+    @include menu-format;
+    @include sale-link;
     &:hover {
       color: $hover-link-color;
     }
-    &:nth-child(6) {
-      color: $sale-link-color;
-      &:hover {
-        color: $hover-link-color;
-      }
-    }
-  } // anchor end
-}// header end
+  }
+} // anchor end
+
+.drop-menu {
+  @include sub-menu-format;
+}
 
 .main-content-container {
   display: flex;
@@ -125,6 +139,6 @@
     }
   }
   .header {
-    width: 100%;
+    width:95%
   }
 }

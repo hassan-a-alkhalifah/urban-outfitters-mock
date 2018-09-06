@@ -5,4 +5,38 @@ $sale-link-color: rgb(224,0,0);
 $max-width: 1425px;
 $standard-margin: 20px;
 $header-height: 46px;
-$container-padding: 50px 50px 20px 50px;
+$container-padding: 95px 50px 20px 50px;
+@mixin sale-link {
+  &:last-child {
+    color: $sale-link-color;
+    &:hover {
+      color: $hover-link-color;
+    }
+  }
+}
+
+@mixin menu-format {
+font-family: helvetica, arial, sans-serif;
+font-size: 12px;
+text-decoration: none;
+color: $font-color;
+}
+
+// NOTED: WIDTH & MARGIN LEFT ARE TEMPORARY FIXES, NOT IDEAL
+@mixin sub-menu-format {
+  display: none;
+  position: fixed;
+  margin: 0 auto;
+  margin-top: ($header-height + 1px);
+  margin-left: -45%;
+  width:100%;
+  text-align: center;
+}
+
+@mixin drop-option($div, $tabs) {
+  .main-menu > div:nth-child(#{$div}) a {
+    &:hover + #{$tabs} {
+      display: block;
+    }
+  }
+}
