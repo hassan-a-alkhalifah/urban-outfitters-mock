@@ -1,0 +1,130 @@
+@import 'abstracts/variables';
+
+* {
+  margin: 0 0;
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.header-container {
+  position:fixed;
+  width: 100%;
+  background-color: #FFF;
+  border-bottom: solid $border 1px;
+}
+
+.header {
+  width: $max-width;
+  padding: 0 30px;
+  margin: 0 auto;
+  font-family: helvetica, arial, sans-serif;
+  font-size: 12px;
+  text-decoration: none;
+  color: $font-color;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: $header-height;
+  img {
+    height: 15px;
+  }
+
+  .header-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: inherit;
+    #shopping-bag {
+      width: 24.5px;
+      height: 25px;
+    }
+  } // header menu end
+
+  .search-bar {
+    border: solid $border 1px;
+    height: 27px;
+    width: 125px;
+    padding: 3px 0 0 3px;
+    position: relative;
+    input {
+      height: 16px;
+      width: 90px;
+      border: none;
+      position: absolute;
+      top: 4px;
+      left: 20px;
+    }
+    img {
+      width: 20px;
+      height: 16px;
+      position: absolute;
+      top: 6px;
+      left: 1px;
+
+    }
+  } // search bar end
+
+  a {
+    padding: 15px 10px;
+    &:hover {
+      color: $hover-link-color;
+    }
+    &:nth-child(6) {
+      color: $sale-link-color;
+      &:hover {
+        color: $hover-link-color;
+      }
+    }
+  } // anchor end
+}// header end
+
+.main-content-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: $max-width;
+  padding: $container-padding;
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: $standard-margin;
+    &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+      img {
+        align-self: center;
+        &:nth-child(1) {
+          margin-right: $standard-margin;
+        }
+        &:nth-child(3) {
+          margin-left: $standard-margin;
+        }
+      }
+    }
+    &:nth-child(6) {
+      margin: 0 auto;
+    }
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .main-content-container {
+    div {
+      max-width: 100%;
+      img {
+        max-width: 100%;
+        width: calc(50% - 10px);
+        height: auto;
+      }
+      &:nth-child(3) {
+        img {
+          max-width: 100%;
+          width: calc((100% /3) - (40px / 3));
+          height: auto;
+        }
+      }
+    }
+  }
+  .header {
+    width: 100%;
+  }
+}
